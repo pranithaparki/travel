@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Blog Post</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      background-color: #0077b6;
+    }
+    
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    
+    h1, h2 {
+      text-align: center;
+      color: #0077b6;
+    }
+    
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    button:hover {
+      background-color: #005f8a;
+    }
+    
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      
+      .place-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        width: 250px;
+        overflow: hidden;
+        text-align: center;
+      }
+      
+      .place-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+    .post {
+      border: 1px solid #ddd;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+    
+    .post img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Share Your Travel Experience</h1>
+    <form id="postForm">
+      <label for="username">Your Name:</label>
+      <input type="text" id="username" required>
+
+      <label for="comment">Your Comment:</label>
+      <textarea id="comment" rows="4" required></textarea>
+
+      <label for="photo">Upload a Photo:</label>
+      <input type="file" id="photo" accept="image/*" required>
+
+      <button type="submit">Post</button>
+    </form>
+
+    <h2>Recent Posts</h2>
+<div class="card-container">
+  <div class="place-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRowsp2mZ-AYhh3BtDqbXTQOs_an6Ob69zvzg&s">  <br>
+  </div>
+  <div class="place-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5iaBuFhqMFq2OVzMKQpckqOBH3xeW75zMJA&s"><br>
+  </div>
+</div>
+<div class="card-container">
+    <div class="place-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBycOIcK_UTRmKiPvwA5FQTYdYIfzvj5PB-A&s">  <br>
+    </div>
+    <div class="place-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkDL5K2_CTtswp3eXhuOoYP7Mk-3bbbGLb3g&s"><br>
+    </div>
+  </div>
+</section>
+    <div id="postsContainer"></div>
+  </div>
+
+  <script>document.getElementById('postForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+  
+    const username = document.getElementById('username').value;
+    const comment = document.getElementById('comment').value;
+    const photo = document.getElementById('photo').files[0];
+  
+    if (!photo) return;
+  
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const postContainer = document.getElementById('postsContainer');
+  
+      const post = document.createElement('div');
+      post.classList.add('post');
+  
+      post.innerHTML = `
+        <strong>${username}</strong>
+        <p>${comment}</p>
+        <img src="${event.target.result}" alt="Uploaded Image">
+      `;
+  
+      postContainer.prepend(post);
+  
+      document.getElementById('postForm').reset();
+    };
+  
+    reader.readAsDataURL(photo);
+  });</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Travel Package</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f0f0f0;
+      background-color: antiquewhite;
+    }
+    
+    h1 {
+      color: #2c3e50;
+    }
+    
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    button:hover {
+      background-color: #2980b9;
+    }
+    
+    #confirmation {
+      margin-top: 20px;
+      padding: 15px;
+      background: #dff0d8;
+      border-left: 5px solid #3c763d;
+    }
+  </style>
+</head>
+<body>
+    <center>
+  <h1>SOUTH INDIA</h1>
+  <h1>Travel Package Booking</h1>
+<form name="form1" method="post" action="bo.jsp">
+
+    <label for="name" align="left">name:</label>
+    <input type="text" name="name" required>
+
+    <label for="contact" align="left">Contact Number:</label>
+    <input type="text" name="contact" required>
+
+    <label for="state" align="left">State:</label>
+    <input type="text" name="state" required>
+
+    <label for="destination" align="left"> Destination:</label>
+    <input type="text" name="destination" required>
+
+    <label for="guide" align="left">Guide:</label>
+    <input type="text" name="guide" required>
+    
+
+    <button type="submit">Book Now</button>
+  </form>
+  
+
+  <div id="confirmation" style="display:none;"></div>
+  </center>
+  
+</body>
+</html>
